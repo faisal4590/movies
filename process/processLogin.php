@@ -45,7 +45,7 @@ if(!empty($_POST))
                 $_SESSION['uemail']=$row['email'];
                 $_SESSION['status']=true;
 
-                if($_SESSION['unm']!="admin")
+                if($_SESSION['uemail']!="admin@gmail.com")
                 {
                     header("location:../index.php");
                 }
