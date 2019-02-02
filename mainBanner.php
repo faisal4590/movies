@@ -137,8 +137,9 @@
                         </ul> <!-- cd-header-buttons -->
                     </div>
                     <div id="cd-search" class="cd-search">
-                        <form action="#" method="post">
-                            <input name="Search" type="search" placeholder="Search...">
+                        <form action="#" method="post" role="search">
+                            <input name="name" id="search" type="search" placeholder="Search...">
+                            <div id="result"></div>
                         </form>
                     </div>
                 </div>
@@ -342,6 +343,30 @@
 </script>
 <!--end-smooth-scrolling-->
 <script src="js/bootstrap.js"></script>
+
+
+
+
+<!--Live Search script-->
+
+<script>
+    $("#search").keyup(function () {
+        $search = $("#search").val();
+        if ($search.length > 0)
+        {
+            $.get("get_movies.php", {"search": $search}, function ($data) {
+                $("#result").html($data);
+            })
+        }
+
+    });
+    $("#search").keydown(function () {
+        $("#result").html("");
+
+    });
+
+
+</script>
 </body>
 </html>
 
