@@ -18,13 +18,18 @@
     <title>Document</title>
 
     <!-- //for-mobile-apps -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- pop-up -->
-    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
     <!-- //pop-up -->
     <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
-    <link rel="stylesheet" type="text/css" href="css/zoomslider.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/zoomslider.css" />
+    <link rel="stylesheet" type="text/css" href="css/table-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/basictable.css" />
+    <!-- list-css -->
+    <link rel="stylesheet" href="css/list.css" type="text/css" media="all" />
+    <!-- //list-css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link href="css/font-awesome.css" rel="stylesheet">
     <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
     <!--/web-fonts-->
@@ -57,81 +62,69 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="index.php">Home</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Action <b
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b
                                             class="caret"></b></a>
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <li>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="addMovies.php">Add movies</a></li>
-                                                <li><a href="genre.html">Biography</a></li>
-                                                <li><a href="genre.html">Crime</a></li>
-                                                <li><a href="genre.html">Family</a></li>
-                                                <li><a href="horror.html">Horror</a></li>
-                                                <li><a href="genre.html">Romance</a></li>
-                                                <li><a href="genre.html">Sports</a></li>
-                                                <li><a href="genre.html">War</a></li>
+                                                <?php
+                                                $query = "select distinct films.genre from films";
+                                                $result = mysqli_query($db, $query) or die('cant connect to query');
+                                                while($row = mysqli_fetch_array($result))
+                                                {
+                                                    echo '
+                                                     <li><a href="#">'. $row['genre'] .'</a></li>
+                                                    
+                                                    ';
+
+
+                                                }
+                                                ?>
+
                                             </ul>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="genre.html">Adventure</a></li>
-                                                <li><a href="comedy.html">Comedy</a></li>
-                                                <li><a href="genre.html">Documentary</a></li>
-                                                <li><a href="genre.html">Fantasy</a></li>
-                                                <li><a href="genre.html">Thriller</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="genre.html">Animation</a></li>
-                                                <li><a href="genre.html">Costume</a></li>
-                                                <li><a href="genre.html">Drama</a></li>
-                                                <li><a href="genre.html">History</a></li>
-                                                <li><a href="genre.html">Musical</a></li>
-                                                <li><a href="genre.html">Psychological</a></li>
-                                            </ul>
-                                        </div>
+
                                         <div class="clearfix"></div>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="series.html">tv - series</a></li>
-                            <li><a href="news.html">news</a></li>
+                            <li><a href="#">tv - series</a></li>
+                            <li><a href="$">news</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Country <b class="caret"></b></a>
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <li>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="genre.html">Asia</a></li>
-                                                <li><a href="genre.html">France</a></li>
-                                                <li><a href="genre.html">Taiwan</a></li>
-                                                <li><a href="genre.html">United States</a></li>
+                                                <li><a href="#">Asia</a></li>
+                                                <li><a href="#l">France</a></li>
+                                                <li><a href="#">Taiwan</a></li>
+                                                <li><a href="#">United States</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="genre.html">China</a></li>
-                                                <li><a href="genre.html">HongCong</a></li>
-                                                <li><a href="genre.html">Japan</a></li>
-                                                <li><a href="genre.html">Thailand</a></li>
+                                                <li><a href="#">China</a></li>
+                                                <li><a href="#">HongCong</a></li>
+                                                <li><a href="#">Japan</a></li>
+                                                <li><a href="#">Thailand</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="genre.html">Euro</a></li>
-                                                <li><a href="genre.html">India</a></li>
-                                                <li><a href="genre.html">Korea</a></li>
-                                                <li><a href="genre.html">United Kingdom</a></li>
+                                                <li><a href="#">Euro</a></li>
+                                                <li><a href="#">India</a></li>
+                                                <li><a href="#">Korea</a></li>
+                                                <li><a href="#">United Kingdom</a></li>
                                             </ul>
                                         </div>
                                         <div class="clearfix"></div>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="list.html">A - z list</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="list.php">A - z list</a></li>
+                            <li><a href="contact.php">Contact</a></li>
                         </ul>
 
                     </div>
